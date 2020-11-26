@@ -2,7 +2,7 @@
   background-color: #101010;
   color: white;
   padding: 8vh 2vh 2vh 2vh;
-  min-height: 87vh;
+  min-height: 100vh;
 }
 
 input.input {
@@ -21,4 +21,26 @@ input.input:focus {
 
 .indent {
   text-indent: 20px;
+}
+
+.hyperlink {
+  margin-left: 5px;
+  color: white;
+  text-decoration: none;
+}
+
+.hyperlink:link {
+  color: white;
+}
+
+.hyperlink:visited {
+  color: white;
+}
+
+.hyperlink:hover {
+  color: white;
+}
+
+.hyperlink:active {
+  color: white;
 }
