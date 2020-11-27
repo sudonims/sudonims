@@ -15,7 +15,7 @@ export default function Homepage() {
   };
 
   const complete = (sub) => {
-    return ['neofetch', 'projects', 'help'].filter(
+    return ['neofetch', 'projects', 'help', 'exit'].filter(
       (key) => key.indexOf(sub) === 0
     );
   };
@@ -26,6 +26,14 @@ export default function Homepage() {
         setCmd(e.target.value);
         setWrong(false);
         e.target.value = '';
+      } else if (e.target.value === 'exit') {
+        var a = document.createElement('a');
+        a.setAttribute(
+          'href',
+          "javascript:window.open(window.location,'_self').close();"
+        );
+        console.log(a);
+        a.click();
       } else {
         setCmd('help');
         setWrong(true);

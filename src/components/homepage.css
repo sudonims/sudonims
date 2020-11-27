@@ -44,3 +44,9 @@ input.input:focus {
 .hyperlink:active {
   color: white;
 }
+
+@media (min-width: 992px) {
+  .img {
+    margin-left: 5vw;
+  }
+}

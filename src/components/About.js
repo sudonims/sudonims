@@ -18,19 +18,20 @@ export default function About() {
   );
 
   return (
-    <div className="container">
+    <div className="container-fluid">
       <div className="row">
-        <div className="col-5">
+        <div className="col-5 col-sm-5 col-md-5 col-lg-6 col-xl-6">
           <img
+            className="img"
             alt="ascii-art"
             src={sudonims}
-            height={width * 0.3 * 1.1}
-            width={width * 0.3}
+            height={width * 0.35 * 1.1}
+            width={width * 0.35}
           />
         </div>
-        <div className="col-7">
+        <div className="col-7 col-sm-7 col-md-7 col-lg-6 col-xl-6">
           <div className="row">
-            <div className="col-12">
+            <div className="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
               <p>
                 <label style={{ color: '#0dbf00' }}>
                   <b>nimish</b>
@@ -41,10 +42,10 @@ export default function About() {
                 </label>
               </p>
             </div>
-            <div className="col-12">
+            <div className="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
               <p>------------------------</p>
             </div>
-            <div className="col-12">
+            <div className="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
               <span>
                 <b style={{ color: '#0dbf00' }}>About:&nbsp;&nbsp;</b>
               </span>
@@ -53,7 +54,7 @@ export default function About() {
                 this ever evolving world
               </span>
             </div>
-            <div className="col-12">
+            <div className="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
               <span>
                 <b style={{ color: '#0dbf00' }}>Interests:&nbsp;&nbsp;</b>
               </span>
@@ -62,7 +63,7 @@ export default function About() {
                 Kernel, Android, Webdev
               </span>
             </div>
-            <div className="col-12">
+            <div className="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
               <span>
                 <b style={{ color: '#0dbf00' }}>
                   What I love to do:&nbsp;&nbsp;
@@ -73,7 +74,7 @@ export default function About() {
                 Develop something interesting
               </span>
             </div>
-            <div className="col-12">
+            <div className="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
               <span>
                 <b style={{ color: '#0dbf00' }}>Skills:&nbsp;&nbsp;</b>
               </span>
@@ -81,7 +82,7 @@ export default function About() {
                 C/C++, Git, JavaScript, Googling, Linux, Python, Webdev
               </span>
             </div>
-            <div className="col-12">
+            <div className="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
               <span>
                 <b style={{ color: '#0dbf00' }}>Resume:&nbsp;&nbsp;</b>
               </span>
@@ -96,7 +97,7 @@ export default function About() {
                 </a>
               </span>
             </div>
-            <div className="col-12">
+            <div className="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
               <span>
                 <b style={{ color: '#0dbf00' }}>Reach me @:&nbsp;&nbsp;</b>
                 <p>
