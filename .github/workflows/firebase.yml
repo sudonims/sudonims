@@ -25,6 +25,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Deploy
+        env:
+          CI: false
         run: |
           sudo npm install -g firebase-tools
           npm install

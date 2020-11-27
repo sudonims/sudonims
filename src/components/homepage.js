@@ -2,7 +2,6 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhone, faMailBulk } from '@fortawesome/free-solid-svg-icons';
 import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
-import AspectRatio from 'react-aspect-ratio';
 
 import './homepage.css';
 import sudonims from './sudonims.png';
