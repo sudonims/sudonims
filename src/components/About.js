@@ -20,7 +20,7 @@ export default function About() {
   return (
     <div className="container">
       <div className="row">
-        <div className="col-6">
+        <div className="col-5">
           <img
             alt="ascii-art"
             src={sudonims}
@@ -28,7 +28,7 @@ export default function About() {
             width={width * 0.3}
           />
         </div>
-        <div className="col-6">
+        <div className="col-7">
           <div className="row">
             <div className="col-12">
               <p>
@@ -42,7 +42,7 @@ export default function About() {
               </p>
             </div>
             <div className="col-12">
-              <p>---------------</p>
+              <p>------------------------</p>
             </div>
             <div className="col-12">
               <span>
