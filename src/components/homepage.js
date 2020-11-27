@@ -28,14 +28,14 @@ const Help = () => {
 };
 
 const About = () => {
-  const [height, setHeight] = React.useState(window.innerHeight);
+  // const [height, setHeight] = React.useState(window.innerHeight);
   const [width, setWidth] = React.useState(window.innerWidth);
 
   React.useEffect(
-    (width, height) => {
+    (width) => {
       window.addEventListener('resize', () => {
         setWidth(window.innerWidth);
-        setHeight(window.innerHeight);
+        // setHeight(window.innerHeight);
       });
     },
     [window]
@@ -45,14 +45,19 @@ const About = () => {
     <div className="container">
       <div className="row">
         <div className="col-6">
-          <AspectRatio
+          {/* <AspectRatio
             ratio="522/504"
             style={{
               maxWidth: '45vw',
             }}
-          >
-            <img src={sudonims} height="auto" width="auto" />
-          </AspectRatio>
+          > */}
+          <img
+            alt="ascii-art"
+            src={sudonims}
+            height={width * 0.4 * 1.03}
+            width={width * 0.4}
+          />
+          {/* </AspectRatio> */}
         </div>
         <div className="col-6">
           <div className="row">
@@ -109,6 +114,7 @@ const About = () => {
                   <FontAwesomeIcon icon={faPhone} />{' '}
                   <a
                     target="_blank"
+                    rel="noreferrer"
                     className="hyperlink"
                     href="tel:+919405242307"
                   >
@@ -119,6 +125,7 @@ const About = () => {
                   <FontAwesomeIcon icon={faMailBulk} />{' '}
                   <a
                     target="_blank"
+                    rel="noreferrer"
                     className="hyperlink"
                     href="mailto:nimishshah2000@gmail.com"
                   >
@@ -129,6 +136,7 @@ const About = () => {
                   <FontAwesomeIcon icon={faLinkedin} />{' '}
                   <a
                     target="_blank"
+                    rel="noreferrer"
                     className="hyperlink"
                     href="https://www.linkedin.com/in/sudonims"
                   >
@@ -139,6 +147,7 @@ const About = () => {
                   <FontAwesomeIcon icon={faGithub} />{' '}
                   <a
                     target="_blank"
+                    rel="noreferrer"
                     className="hyperlink"
                     href="https://www.github.com/sudonims"
                   >
