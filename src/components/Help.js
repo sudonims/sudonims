@@ -2,20 +2,36 @@ import React from 'react';
 
 export default function Help() {
   return (
-    <>
+    <div className="container">
       <p>Usage: &lt;command&gt;</p>
       <p>Commands:</p>
-      <p className="indent">
-        neofetch &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Shows something about
-        me. :)
-      </p>
-      <p className="indent">
-        projects &nbsp;&nbsp;&nbsp;&nbsp; Lists some of my projects
-      </p>
-      <p className="indent">
-        help &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Show this
-        help window
-      </p>
-    </>
+      <div className="row">
+        <div className="col-1">
+          <p className="indent">
+            <b>neofetch</b>
+          </p>
+        </div>
+        <div className="col-1"></div>
+        <div className="col-3">Shows something about me. :)</div>
+      </div>
+      <div className="row">
+        <div className="col-1">
+          <p className="indent">
+            <b>projects</b>
+          </p>
+        </div>
+        <div className="col-1"></div>
+        <div className="col-3">Lists some of my projects</div>
+      </div>
+      <div className="row">
+        <div className="col-1">
+          <p className="indent">
+            <b>help</b>
+          </p>
+        </div>
+        <div className="col-1"></div>
+        <div className="col-3">Show this help window</div>
+      </div>
+    </div>
   );
 }

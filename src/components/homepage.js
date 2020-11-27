@@ -13,15 +13,26 @@ export default function Homepage() {
     help: <Help />,
     projects: <>projects</>,
   };
+
+  const complete = (sub) => {
+    return ['neofetch', 'projects', 'help'].filter(
+      (key) => key.indexOf(sub) === 0
+    );
+  };
+
   const submit = (e) => {
     if (e.key === 'Enter') {
       if (e.target.value in components) {
         setCmd(e.target.value);
         setWrong(false);
+        e.target.value = '';
       } else {
         setCmd('help');
         setWrong(true);
       }
+    } else if (e.keyCode === 9) {
+      e.preventDefault();
+      e.target.value = complete(e.target.value)[0] || e.target.value;
     }
   };
   return (
@@ -33,6 +44,7 @@ export default function Homepage() {
           autoFocus={true}
           className="input"
           id="caret"
+          autoComplete="off"
         />
       </div>
       <div>
