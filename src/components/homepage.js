@@ -27,13 +27,7 @@ export default function Homepage() {
         setWrong(false);
         e.target.value = '';
       } else if (e.target.value === 'exit') {
-        var a = document.createElement('a');
-        a.setAttribute(
-          'href',
-          "javascript:window.open(window.location,'_self').close();"
-        );
-        console.log(a);
-        a.click();
+        document.getElementsByTagName('html')[0].remove();
       } else {
         setCmd('help');
         setWrong(true);
