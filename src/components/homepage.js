@@ -3,31 +3,42 @@ import About from './About';
 import Help from './Help';
 
 import './homepage.css';
+import ListProjects from './LsProjects';
 
 const History = React.createContext({
   history: [],
   setHistory: () => {},
 });
 
-const Command = ({ cmd, wrong, c }) => {
+const Command = ({ cmd, wrong, c, cat }) => {
   const { setHistory } = React.useContext(History);
 
   const components = {
     neofetch: <About />,
     help: <Help />,
-    projects: <>projects</>,
+    cat: <>Work in progress {cat}</>,
+    'ls-projects': <ListProjects />,
   };
 
   const complete = (sub) => {
-    return ['neofetch', 'projects', 'help', 'exit'].filter(
+    return ['neofetch', 'cat', 'ls-projects', 'help'].filter(
       (key) => key.indexOf(sub) === 0
     );
   };
 
   const submit = (e) => {
     if (e.key === 'Enter') {
-      if (e.target.value in components) {
-        setHistory(<Command cmd={e.target.value} wrong={false} />);
+      e.target.readOnly = true;
+      if (e.target.value.split(' ')[0] in components) {
+        if (e.target.value.includes('cat')) {
+          setHistory(
+            <Command
+              cmd={e.target.value.split(' ')[0]}
+              wrong={false}
+              cat={e.target.value.split(' ')[1]}
+            />
+          );
+        } else setHistory(<Command cmd={e.target.value} wrong={false} />);
       } else {
         setHistory(<Command cmd="help" wrong={true} c={e.target.value} />);
       }
