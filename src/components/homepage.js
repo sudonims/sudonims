@@ -4,9 +4,13 @@ import Help from './Help';
 
 import './homepage.css';
 
-export default function Homepage() {
-  const [cmd, setCmd] = React.useState('help');
-  const [wrong, setWrong] = React.useState(false);
+const History = React.createContext({
+  history: [],
+  setHistory: () => {},
+});
+
+const Command = ({ cmd, wrong, c }) => {
+  const { setHistory } = React.useContext(History);
 
   const components = {
     neofetch: <About />,
@@ -23,14 +27,9 @@ export default function Homepage() {
   const submit = (e) => {
     if (e.key === 'Enter') {
       if (e.target.value in components) {
-        setCmd(e.target.value);
-        setWrong(false);
-        e.target.value = '';
-      } else if (e.target.value === 'exit') {
-        document.getElementsByTagName('html')[0].remove();
+        setHistory(<Command cmd={e.target.value} wrong={false} />);
       } else {
-        setCmd('help');
-        setWrong(true);
+        setHistory(<Command cmd="help" wrong={true} c={e.target.value} />);
       }
     } else if (e.keyCode === 9) {
       e.preventDefault();
@@ -38,7 +37,9 @@ export default function Homepage() {
     }
   };
   return (
-    <div className="background">
+    <>
+      <div>{wrong ? <p> {c}, command not found:</p> : <></>}</div>
+      <div>{components[cmd]}</div>
       <div>
         <label>root@sudonims ~#</label>&nbsp;
         <input
@@ -49,14 +50,24 @@ export default function Homepage() {
           autoComplete="off"
         />
       </div>
-      <div>
-        {wrong ? (
-          <p>{document.getElementById('caret').value}, command not found:</p>
-        ) : (
-          <></>
-        )}
-      </div>
-      <div>{components[cmd]}</div>
-    </div>
+    </>
+  );
+};
+
+export default function Homepage() {
+  const [history, setHistory] = React.useState([<Command init="help" />]);
+
+  const update = (data) => {
+    setHistory((history) => history.concat([data]));
+  };
+  return (
+    <History.Provider
+      value={{
+        history: history,
+        setHistory: update,
+      }}
+    >
+      <div className="background">{history}</div>
+    </History.Provider>
   );
 }
