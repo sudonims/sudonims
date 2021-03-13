@@ -4,10 +4,20 @@ import { faPhone, faMailBulk } from '@fortawesome/free-solid-svg-icons';
 import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
 
 import sudonims from './sudonims.png';
+import { db } from './firebase/firebase';
 
 export default function About() {
   const [width, setWidth] = React.useState(window.innerWidth);
+  const [link, setLink] = React.useState('');
 
+  React.useEffect(() => {
+    db.collection('me')
+      .doc('myself')
+      .get()
+      .then((doc) => {
+        setLink(doc.data().resume);
+      });
+  }, []);
   React.useEffect(
     (width) => {
       window.addEventListener('resize', () => {
@@ -91,7 +101,7 @@ export default function About() {
                   target="_blank"
                   rel="noreferrer"
                   className="hyperlink"
-                  href="https://firebasestorage.googleapis.com/v0/b/sudonims.appspot.com/o/Nimish's%20Resume.pdf?alt=media&token=d9c5ebec-d224-4d6a-9462-ddfb3be26f74"
+                  href={link}
                 >
                   <u>Get</u>
                 </a>

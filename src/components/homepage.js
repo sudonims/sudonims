@@ -66,7 +66,7 @@ const Command = ({ cmd, wrong, c, cat }) => {
 };
 
 export default function Homepage() {
-  const [history, setHistory] = React.useState([<Command init="help" />]);
+  const [history, setHistory] = React.useState([<Command cmd="help" />]);
 
   const update = (data) => {
     setHistory((history) => history.concat([data]));
