@@ -9,15 +9,14 @@ export default function ExVTOP() {
         path={`${url}/privacy`}
         component={() => {
           window.location.href =
-            'https://github.com/sudonims/vtop-da-deadline/blob/master/PRIVACY.md';
+            'https://sudonims.github.io/vtop-da-deadline/privacy';
           return null;
         }}
       />
       <Route
         path={`${url}/home`}
         component={() => {
-          window.location.href =
-            'https://chrome.google.com/webstore/detail/exvtop-extended-vtop/mmncmmodffimfglkgomlgbgpcgidkbij';
+          window.location.href = 'https://sudonims.github.io/vtop-da-deadline/';
           return null;
         }}
       />
