@@ -31,7 +31,7 @@ jobs:
           sudo npm install -g yarn
           yarn install
           yarn build
-          git checkout gh-pages
+          git switch gh-pages
           cp -r build/* .;
           git add .;
           git commit -am "staged deploy"
