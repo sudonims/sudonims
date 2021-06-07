@@ -35,7 +35,10 @@ jobs:
           sudo npm install -g yarn
           yarn install
           yarn build
+          git config user.email "nimishshah2000@gmail.com"
+          git config user.name "sudonims"
           git remote set-url --push origin https://sudonims:$GITHUB_TOKEN@github.com/sudonims
+          git commit -am "build"
           git switch gh-pages
           cp -r build/* .;
           git add .;
