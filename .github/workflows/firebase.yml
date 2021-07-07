@@ -5,18 +5,18 @@ on:
     branches: [master]
 
 jobs:
-  build:
-    name: Build Checks
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - name: reactJS unit test
-        env:
-          CI: false
-          NODE_ENV: "development"
-        run: |
-          # npm install
-          # CI=true npm run test
+  # build:
+  #   name: Build Checks
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v1
+  #     - name: reactJS unit test
+  #       env:
+  #         CI: false
+  #         NODE_ENV: "development"
+  #       run: |
+  #         # npm install
+  #         # CI=true npm run test
 
   deploy:
     name: Deploy
@@ -33,6 +33,7 @@ jobs:
           CI: false
         run: |
           sudo npm install -g yarn
+          rm -r build
           yarn install
           yarn build
           git config user.email "nimishshah2000@gmail.com"
@@ -40,9 +41,10 @@ jobs:
           git remote set-url --push origin https://sudonims:$GITHUB_TOKEN@github.com/sudonims/sudonims
           git commit -am "build"
           git switch gh-pages
-          rm -rf node_modules
+          shopt -s extglob
+          rm -rf !("build"|"CNAME")
           cp -r build/* .;
+          rm -r build
           git add .;
           git commit -am "staged deploy"
           git push origin gh-pages
-          rm -r build
