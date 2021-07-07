@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhone, faMailBulk } from '@fortawesome/free-solid-svg-icons';
 import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
 
-import sudonims from './sudonims.png';
 import { db } from './firebase/firebase';
 
 export default function About() {
@@ -18,6 +17,7 @@ export default function About() {
         setLink(doc.data().resume);
       });
   }, []);
+
   React.useEffect(
     (width) => {
       window.addEventListener('resize', () => {
@@ -33,8 +33,8 @@ export default function About() {
         <div className="col-5 col-sm-5 col-md-5 col-lg-6 col-xl-6">
           <img
             className="img"
-            alt="ascii-art"
-            src={sudonims}
+            alt="myself"
+            src={require('./sudonims.jpg').default}
             height={width * 0.35 * 1.1}
             width={width * 0.35}
           />
