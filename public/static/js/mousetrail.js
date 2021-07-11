@@ -1,80 +1,28 @@
-// $(document).ready(function () {
-//   var mousePos = {};
-
-//   function getRandomInt(min, max) {
-//     return Math.round(Math.random() * (max - min + 1)) + min;
-//   }
-
-//   $(window).mousemove(function (e) {
-//     // console.log(e);
-//     mousePos.x = e.pageX;
-//     mousePos.y = e.pageY;
-//   });
-
-//   $(window).mouseleave(function (e) {
-//     mousePos.x = -1;
-//     mousePos.y = -1;
-//   });
-
-//   var draw = setInterval(function () {
-//     if (mousePos.x > 0 && mousePos.y > 0) {
-//       var range = 15;
-
-//       var color =
-//         'background: rgb(' +
-//         getRandomInt(0, 255) +
-//         ',' +
-//         getRandomInt(0, 255) +
-//         ',' +
-//         getRandomInt(0, 255) +
-//         ');';
-
-//       var sizeInt = getRandomInt(10, 30);
-//       var size = 'height: ' + sizeInt + 'px; width: ' + sizeInt + 'px;';
-
-//       var left =
-//         'left: ' +
-//         getRandomInt(mousePos.x - range - sizeInt, mousePos.x + range) +
-//         'px;';
-
-//       var top =
-//         'top: ' +
-//         getRandomInt(mousePos.y - range - sizeInt, mousePos.y + range) +
-//         'px;';
-
-//       var style = left + top + color + size;
-//       $("<div class='ball' style='" + style + "'></div>")
-//         .appendTo('#wrap')
-//         .one(
-//           'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend',
-//           function () {
-//             $(this).remove();
-//           }
-//         );
-//     }
-//   }, 1);
-// });
-
 // dots is an array of Dot objects,
 // mouse is an object used to track the X and Y position
 // of the mouse, set with a mousemove event listener below
-var dots = [],
-  mouse = {
-    x: 0,
-    y: 0,
-  };
 
+var score = 20;
+
+var dots = [];
+var mouse = {
+  x: 0,
+  y: 0,
+};
+// let edible;
 // The Dot object used to scaffold the dots
-var Dot = function () {
-  this.x = 0;
-  this.y = 0;
+var Dot = function (which, x, y) {
+  this.x = x;
+  this.y = y;
   this.node = (function () {
     var n = document.createElement('div');
-    n.className = 'trail';
+    n.className = which;
     document.body.appendChild(n);
     // document.body.appendChild(n);
     return n;
   })();
+  this.getX = () => this.x;
+  this.getY = () => this.y;
 };
 // The Dot.prototype.draw() method sets the position of
 // the object's <div> node
@@ -83,9 +31,16 @@ Dot.prototype.draw = function () {
   this.node.style.top = this.y + 'px';
 };
 
+// edible = new Dot(
+//   'eat',
+//   Math.floor(Math.random() * window.innerWidth),
+//   Math.floor(Math.random() * window.innerHeight)
+// );
+// edible.draw();
+
 // Creates the Dot objects, populates the dots array
-for (var i = 0; i < 12; i++) {
-  var d = new Dot();
+for (var i = 0; i < score; i++) {
+  var d = new Dot('trail', 0, 0);
   dots.push(d);
 }
 
@@ -103,15 +58,25 @@ function draw() {
     dot.x = x;
     dot.y = y;
     dot.draw();
-    x += (nextDot.x - dot.x) * 0.6;
-    y += (nextDot.y - dot.y) * 0.6;
+    x += (nextDot.x - dot.x) * 0.8;
+    y += (nextDot.y - dot.y) * 0.8;
   });
 }
 
 addEventListener('mousemove', function (event) {
   //event.preventDefault();
-  mouse.x = event.pageX;
-  mouse.y = event.pageY;
+  mouse.x = event.pageX - 20;
+  mouse.y = event.pageY - 20;
+  // if (event.x === edible.getX() && event.y == edible.getY()) {
+  //   edible = new Dot(
+  //     'eat',
+  //     Math.floor(Math.random() * window.innerWidth),
+  //     Math.floor(Math.random() * window.innerHeight)
+  //   );
+
+  //   edible.draw();
+  //   score += 100;
+  // }
 });
 
 // animate() calls draw() then recursively calls itself

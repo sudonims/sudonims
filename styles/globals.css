@@ -6,6 +6,7 @@ body {
   position: relative;
   background: #222;
   font-family: "Open Sans";
+  z-index: 200;
 }
 
 .trail {
@@ -15,6 +16,16 @@ body {
   width: 6px;
   border-radius: 3px;
   background: teal;
+  z-index: 200;
+}
+
+.eat {
+  /* className for the trail elements */
+  position: absolute;
+  height: 10px;
+  width: 10px;
+  border-radius: 5px;
+  background: blue;
 }
 
 /* #wrap {
