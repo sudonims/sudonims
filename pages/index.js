@@ -14,10 +14,12 @@ export default function Home() {
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Container zIndex={300}>
-        <Sidebar />
+      {/* <Sidebar /> */}
+      <section className="section">
         <Heading as="h1">Hey, I'm Nimish Shah</Heading>
-      </Container>
+        <canvas id="canvas"></canvas>
+      </section>
+
       <script src="/static/js/mousetrail.js"></script>
     </div>
   );

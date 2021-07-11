@@ -2,89 +2,97 @@
 // mouse is an object used to track the X and Y position
 // of the mouse, set with a mousemove event listener below
 
-var score = 20;
+document.addEventListener('DOMContentLoaded', function () {
+  var canvas = document.querySelector('#canvas');
+  var context = canvas.getContext('2d');
 
-var dots = [];
-var mouse = {
-  x: 0,
-  y: 0,
-};
-// let edible;
-// The Dot object used to scaffold the dots
-var Dot = function (which, x, y) {
-  this.x = x;
-  this.y = y;
-  this.node = (function () {
-    var n = document.createElement('div');
-    n.className = which;
-    document.body.appendChild(n);
-    // document.body.appendChild(n);
-    return n;
-  })();
-  this.getX = () => this.x;
-  this.getY = () => this.y;
-};
-// The Dot.prototype.draw() method sets the position of
-// the object's <div> node
-Dot.prototype.draw = function () {
-  this.node.style.left = this.x + 'px';
-  this.node.style.top = this.y + 'px';
-};
+  canvas.width = window.innerWidth;
+  canvas.height = document.documentElement.offsetHeight;
+  console.log(document.documentElement.offsetHeight);
 
-// edible = new Dot(
-//   'eat',
-//   Math.floor(Math.random() * window.innerWidth),
-//   Math.floor(Math.random() * window.innerHeight)
-// );
-// edible.draw();
+  var mouse = {
+    x: 0,
+    y: 0,
+  };
 
-// Creates the Dot objects, populates the dots array
-for (var i = 0; i < score; i++) {
-  var d = new Dot('trail', 0, 0);
-  dots.push(d);
-}
+  var edible = {
+    x: Math.floor(Math.random() * window.innerWidth),
+    y: Math.floor(Math.random() * document.documentElement.offsetHeight),
+  };
 
-// This is the screen redraw function
-function draw() {
-  // Make sure the mouse position is set everytime
-  // draw() is called.
-  var x = mouse.x,
-    y = mouse.y;
+  var motionTrailLength = 50;
+  var positions = [];
 
-  // This loop is where all the 90s magic happens
-  dots.forEach(function (dot, index, dots) {
-    var nextDot = dots[index + 1] || dots[0];
+  function storeLastPosition(xPos, yPos) {
+    // push an item
+    positions.push({
+      x: xPos,
+      y: yPos,
+    });
 
-    dot.x = x;
-    dot.y = y;
-    dot.draw();
-    x += (nextDot.x - dot.x) * 0.8;
-    y += (nextDot.y - dot.y) * 0.8;
+    //get rid of first item
+    if (positions.length > motionTrailLength) {
+      positions.shift();
+    }
+  }
+
+  // This is the screen redraw function
+  function draw() {
+    // Make sure the mouse position is set everytime
+    // draw() is called.
+    var xPos = mouse.x,
+      yPos = mouse.y;
+
+    context.clearRect(0, 0, canvas.width, canvas.height);
+
+    context.beginPath();
+    context.arc(edible.x, edible.y, 10, 0, 2 * Math.PI, true);
+    context.fillStyle = 'blue';
+    context.fill();
+
+    for (var i = 0; i < positions.length; i++) {
+      var ratio = (i + 1) / positions.length;
+      context.beginPath();
+      // context.lineTo(positions[i].x, positions[i].y);
+      context.arc(positions[i].x, positions[i].y, 6, 0, 2 * Math.PI, true);
+      context.fillStyle = 'rgba(204, 102, 153, ' + ratio / 2 + ')';
+      context.fill();
+    }
+    context.beginPath();
+    context.arc(xPos, yPos, 6, 0, 2 * Math.PI, true);
+    context.fillStyle = '#FF6A6A';
+    context.fill();
+
+    storeLastPosition(xPos, yPos);
+    // update position
+  }
+
+  addEventListener('mousemove', function (event) {
+    event.preventDefault();
+    mouse.x = event.pageX;
+    mouse.y = event.pageY;
+    if (
+      Math.sqrt(
+        Math.pow(mouse.x - edible.x, 2) + Math.pow(mouse.y - edible.y, 2)
+      ) <= 6
+    ) {
+      console.log('yaya');
+      edible = {
+        x: Math.floor(Math.random() * window.innerWidth),
+        y: Math.floor(Math.random() * document.documentElement.offsetHeight),
+      };
+
+      motionTrailLength += 10;
+    }
   });
-}
 
-addEventListener('mousemove', function (event) {
-  //event.preventDefault();
-  mouse.x = event.pageX - 20;
-  mouse.y = event.pageY - 20;
-  // if (event.x === edible.getX() && event.y == edible.getY()) {
-  //   edible = new Dot(
-  //     'eat',
-  //     Math.floor(Math.random() * window.innerWidth),
-  //     Math.floor(Math.random() * window.innerHeight)
-  //   );
+  // animate() calls draw() then recursively calls itself
+  // everytime the screen repaints via requestAnimationFrame().
+  function animate() {
+    draw();
+    requestAnimationFrame(animate);
+  }
 
-  //   edible.draw();
-  //   score += 100;
-  // }
+  // And get it started by calling animate().
+  animate();
 });
-
-// animate() calls draw() then recursively calls itself
-// everytime the screen repaints via requestAnimationFrame().
-function animate() {
-  draw();
-  requestAnimationFrame(animate);
-}
-
-// And get it started by calling animate().
-animate();
