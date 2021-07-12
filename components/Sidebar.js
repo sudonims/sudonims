@@ -10,8 +10,8 @@ import {
   DrawerContent,
   Text,
   useDisclosure,
-  VStack,
 } from '@chakra-ui/react';
+import { HamburgerIcon } from '@chakra-ui/icons';
 
 // import {
 //   FiHome,
@@ -23,32 +23,28 @@ import {
 // } from 'react-icons/fi';
 
 const LinkItems = [
-  { href: '', front: 'About', back: 'Go', name: 'Home', icon: <>Icon</> },
+  { href: 'https://sudonims.tech', front: 'About', back: 'Go' },
   {
-    href: '',
+    href: '#exp',
     front: 'Experience',
     back: 'Go',
-    name: 'Trending',
-    icon: <>Icon</>,
   },
-  { href: '', front: 'Work', back: 'Go', name: 'Explore', icon: <>Icon</> },
+  { href: '#work', front: 'Work', back: 'Go' },
   {
-    href: '',
+    href: '#contact',
     front: 'Contact',
     back: 'Go',
-    name: 'Favourites',
-    icon: <>Icon</>,
   },
-  { href: '', front: 'text', back: 'Go', name: 'Settings', icon: <>Icon</> },
 ];
 
-export default function Sidebar({ children }) {
+export default function Sidebar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <Box position="absolute" minH="100vh">
       <SidebarContent
         onClose={() => onClose}
-        display={{ base: 'none', md: 'block' }}
+        display={{ base: 'none', md: 'flex' }}
+        width="10vw"
       />
       <Drawer
         autoFocus={false}
@@ -57,48 +53,31 @@ export default function Sidebar({ children }) {
         onClose={onClose}
         returnFocusOnClose={false}
         onOverlayClick={onClose}
-        size="lg"
+        size="xs"
       >
         <DrawerContent>
-          <SidebarContent onClose={onClose} />
+          <SidebarContent
+            width="80%"
+            display={{ base: 'flex', md: 'none' }}
+            onClose={onClose}
+          />
         </DrawerContent>
       </Drawer>
-      {/* mobilenav */}
       <MobileNav display={{ base: 'flex', md: 'none' }} onOpen={onOpen} />
-      {/* <Box ml={{ base: 0, md: 60 }} p="4">
-        {children}
-      </Box> */}
     </Box>
   );
 }
 
 const SidebarContent = ({ onClose, ...rest }) => {
-  // return (
-  //   <Box w={{ base: 'full', md: 60 }} pos="fixed" h="full" {...rest}>
-  //     <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
-  //       <CloseButton display={{ base: 'flex', md: 'none' }} onClick={onClose} />
-  //     </Flex>
-  //     {LinkItems.map((link) => (
-  //       <NavItem key={link.name}>{link.name}</NavItem>
-  //     ))}
-  //   </Box>
-  // );
-
   return (
-    <Flex
-      width="10vw"
-      justifyContent="flex-end"
-      height="100vh"
-      direction="column"
-    >
-      {LinkItems.map((link) => (
-        <div className="flip">
-          <a href={link.href}>
+    <Flex justifyContent="flex-end" height="100vh" direction="column" {...rest}>
+      {LinkItems.map((link, i) => (
+        <div key={i} className="flip">
+          <a onClick={onClose} href={link.href}>
             <div className="front">{link.front}</div>
             <div className="back">{link.back}</div>
           </a>
         </div>
-        // <NavItem key={link.name}>{link.name}</NavItem>
       ))}
       <Box
         height="60"
@@ -118,22 +97,15 @@ const MobileNav = ({ onOpen, ...rest }) => {
       px={{ base: 4, md: 24 }}
       height="20"
       alignItems="center"
-      bg={useColorModeValue('white', 'gray.900')}
-      borderBottomWidth="1px"
-      borderBottomColor={useColorModeValue('gray.200', 'gray.700')}
       justifyContent="flex-start"
       {...rest}
     >
       <IconButton
+        icon={HamburgerIcon}
         variant="outline"
         onClick={onOpen}
         aria-label="open menu"
-        // icon={<FiMenu />}
       />
-
-      <Text fontSize="2xl" ml="8" fontFamily="monospace" fontWeight="bold">
-        Logo
-      </Text>
     </Flex>
   );
 };

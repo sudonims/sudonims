@@ -1,19 +1,15 @@
-import { useEffect } from 'react';
-import { Heading } from '@chakra-ui/layout';
+import About from '../components/About';
+import RightSidebar from '../components/RightSidebar';
 import Sidebar from '../components/Sidebar';
 
 export default function Home() {
-  useEffect(() => {}, []);
-
   return (
     <>
       <Sidebar />
-      <section className="section">
-        <Heading as="h1">Hey, I'm Nimish Shah</Heading>
-        {/* <canvas id="canvas"></canvas> */}
-      </section>
-
-      {/* <script src="/static/js/mousetrail.js"></script> */}
+      <canvas id="canvas"></canvas>
+      <About />
+      <RightSidebar display={{ base: 'none', md: 'flex' }} />
+      <script src="/static/js/mousetrail.js"></script>
     </>
   );
 }
