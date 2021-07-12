@@ -10,7 +10,9 @@ import {
   DrawerContent,
   Text,
   useDisclosure,
+  VStack,
 } from '@chakra-ui/react';
+
 // import {
 //   FiHome,
 //   FiTrendingUp,
@@ -21,17 +23,29 @@ import {
 // } from 'react-icons/fi';
 
 const LinkItems = [
-  { name: 'Home', icon: <>Icon</> },
-  { name: 'Trending', icon: <>Icon</> },
-  { name: 'Explore', icon: <>Icon</> },
-  { name: 'Favourites', icon: <>Icon</> },
-  { name: 'Settings', icon: <>Icon</> },
+  { href: '', front: 'About', back: 'Go', name: 'Home', icon: <>Icon</> },
+  {
+    href: '',
+    front: 'Experience',
+    back: 'Go',
+    name: 'Trending',
+    icon: <>Icon</>,
+  },
+  { href: '', front: 'Work', back: 'Go', name: 'Explore', icon: <>Icon</> },
+  {
+    href: '',
+    front: 'Contact',
+    back: 'Go',
+    name: 'Favourites',
+    icon: <>Icon</>,
+  },
+  { href: '', front: 'text', back: 'Go', name: 'Settings', icon: <>Icon</> },
 ];
 
 export default function Sidebar({ children }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
-    <Box minH="100vh" bg={useColorModeValue('gray.100', 'gray.900')}>
+    <Box position="absolute" minH="100vh">
       <SidebarContent
         onClose={() => onClose}
         display={{ base: 'none', md: 'block' }}
@@ -43,7 +57,7 @@ export default function Sidebar({ children }) {
         onClose={onClose}
         returnFocusOnClose={false}
         onOverlayClick={onClose}
-        size="full"
+        size="lg"
       >
         <DrawerContent>
           <SidebarContent onClose={onClose} />
@@ -51,66 +65,49 @@ export default function Sidebar({ children }) {
       </Drawer>
       {/* mobilenav */}
       <MobileNav display={{ base: 'flex', md: 'none' }} onOpen={onOpen} />
-      <Box ml={{ base: 0, md: 60 }} p="4">
+      {/* <Box ml={{ base: 0, md: 60 }} p="4">
         {children}
-      </Box>
+      </Box> */}
     </Box>
   );
 }
 
 const SidebarContent = ({ onClose, ...rest }) => {
-  return (
-    <Box
-      bg={useColorModeValue('white', 'gray.900')}
-      borderRight="1px"
-      borderRightColor={useColorModeValue('gray.200', 'gray.700')}
-      w={{ base: 'full', md: 60 }}
-      pos="fixed"
-      h="full"
-      {...rest}
-    >
-      <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
-        <Text fontSize="2xl" fontFamily="monospace" fontWeight="bold">
-          Logo
-        </Text>
-        <CloseButton display={{ base: 'flex', md: 'none' }} onClick={onClose} />
-      </Flex>
-      {LinkItems.map((link) => (
-        <NavItem key={link.name}>{link.name}</NavItem>
-      ))}
-    </Box>
-  );
-};
+  // return (
+  //   <Box w={{ base: 'full', md: 60 }} pos="fixed" h="full" {...rest}>
+  //     <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
+  //       <CloseButton display={{ base: 'flex', md: 'none' }} onClick={onClose} />
+  //     </Flex>
+  //     {LinkItems.map((link) => (
+  //       <NavItem key={link.name}>{link.name}</NavItem>
+  //     ))}
+  //   </Box>
+  // );
 
-const NavItem = ({ icon, children, ...rest }) => {
   return (
-    <Link href="#" style={{ textDecoration: 'none' }}>
-      <Flex
-        align="center"
-        p="4"
-        mx="4"
-        borderRadius="lg"
-        role="group"
-        cursor="pointer"
-        _hover={{
-          bg: 'cyan.400',
-          color: 'white',
-        }}
-        {...rest}
-      >
-        {icon && (
-          <Icon
-            mr="4"
-            fontSize="16"
-            _groupHover={{
-              color: 'white',
-            }}
-            as={icon}
-          />
-        )}
-        {children}
-      </Flex>
-    </Link>
+    <Flex
+      width="10vw"
+      justifyContent="flex-end"
+      height="100vh"
+      direction="column"
+    >
+      {LinkItems.map((link) => (
+        <div className="flip">
+          <a href={link.href}>
+            <div className="front">{link.front}</div>
+            <div className="back">{link.back}</div>
+          </a>
+        </div>
+        // <NavItem key={link.name}>{link.name}</NavItem>
+      ))}
+      <Box
+        height="60"
+        width="1px"
+        backgroundColor="slategray"
+        display="block"
+        margin="0px auto"
+      ></Box>
+    </Flex>
   );
 };
 

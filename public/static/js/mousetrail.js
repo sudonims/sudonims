@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   canvas.width = window.innerWidth;
   canvas.height = document.documentElement.offsetHeight;
-  console.log(document.documentElement.offsetHeight);
+  console.log(document.documentElement.offsetHeight, window.innerWidth);
 
   var mouse = {
     x: 0,
