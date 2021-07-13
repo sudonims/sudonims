@@ -11,7 +11,7 @@ import { HamburgerIcon } from '@chakra-ui/icons';
 export default function Sidebar({ linkItems }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
-    <Box position="absolute" minH="100vh">
+    <Box position="fixed" minH="100vh">
       <SidebarContent
         linkItems={linkItems}
         onClose={() => onClose}
