@@ -67,7 +67,7 @@ export default function Home() {
         </div>
         <Text color="#64ffda">
           <a className="awesome" href="mailto:nimishshah2000@gmail.com">
-            Let's make something awesome !!
+            Let&#39;s make something awesome !!
           </a>
         </Text>
       </Container>
