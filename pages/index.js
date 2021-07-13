@@ -2,8 +2,16 @@ import Home from '../components/Home';
 import RightSidebar from '../components/RightSidebar';
 import Sidebar from '../components/Sidebar';
 import Head from 'next/head';
-import { Flex } from '@chakra-ui/layout';
 import About from '../components/About';
+import { Box, Flex } from '@chakra-ui/layout';
+
+const Divider = () => {
+  return (
+    <Flex justifyContent="center">
+      <Box height="1px" width="30%" backgroundColor="aliceblue"></Box>
+    </Flex>
+  );
+};
 
 export default function Main() {
   return (
@@ -28,10 +36,10 @@ export default function Main() {
         ]}
       />
       <RightSidebar display={{ base: 'none', md: 'flex' }} />
-      <Flex direction="column">
-        <Home />
-        {/* <About /> */}
-      </Flex>
+      <Home />
+      <Divider />
+      <About />
+      <canvas id="canvas"></canvas>
       <script defer src="/static/js/mousetrail.js"></script>
     </>
   );

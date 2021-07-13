@@ -4,7 +4,7 @@ body {
   height: 100%;
   margin: 0;
   position: absolute;
-  background: #222;
+  background: #1a202c;
   z-index: 200;
 }
 
@@ -75,4 +75,58 @@ body {
 .awesome:hover {
   font-size: 18px;
   font-weight: 800;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: aliceblue;
+  border: 3px solid rgba(0, 0, 0, 0);
+}
+
+::-webkit-scrollbar-track {
+  background-color: #1a202c;
+}
+
+.image {
+  position: absolute;
+  background-image: url("/static/image/profile.jpg");
+  min-height: 300px;
+  min-width: 300px;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.image-grey-right {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-top: 200px solid transparent;
+  border-right: 200px solid transparent;
+  transition-duration: 400ms;
+  bottom: 0;
+  right: 0;
+}
+
+.image .image-grey-right:hover {
+  -webkit-filter: grayscale(100%);
+  border-right-color: rgba(44, 44, 44, 0.5);
+}
+
+.image-grey-left {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-top: 200px solid transparent;
+  border-right: 200px solid transparent;
+  transition-duration: 400ms;
+  top: 0;
+  left: 0;
+}
+
+.image .image-grey-left:hover {
+  -webkit-filter: grayscale(100%);
+  border-top-color: rgba(44, 44, 44, 0.5);
 }

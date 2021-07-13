@@ -26,7 +26,7 @@ export default function Home() {
         </Text>
         <Heading
           display={{ base: 'none', md: 'block' }}
-          size="4xl"
+          fontSize="8xl"
           as="h1"
           marginBottom="1"
           letterSpacing="wide"
