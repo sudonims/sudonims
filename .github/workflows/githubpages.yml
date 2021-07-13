@@ -44,6 +44,7 @@ jobs:
           rm -rf !("out"|"CNAME")
           cp -r out/* .;
           rm -r out
+          touch .nojekyll
           git add .;
           git commit -am "staged deploy"
           git push origin gh-pages
