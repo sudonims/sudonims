@@ -62,5 +62,16 @@ body {
 }
 
 .text-rotate:hover {
+  font-size: 18px;
+  font-weight: 800;
   transform: rotate(50deg);
+}
+
+.awesome {
+  transition-duration: 300ms;
+}
+
+.awesome:hover {
+  font-size: 18px;
+  font-weight: 800;
 }
