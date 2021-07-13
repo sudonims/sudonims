@@ -6,7 +6,7 @@ export default function RightSidebar({ ...rest }) {
       justifyContent="flex-start"
       height="100vh"
       direction="column"
-      position="absolute"
+      position="fixed"
       width="10vw"
       top="0"
       right="0"
