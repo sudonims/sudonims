@@ -38,7 +38,7 @@ jobs:
           git config user.email "nimishshah2000@gmail.com"
           git config user.name "sudonims"
           git remote set-url --push origin https://sudonims:$GITHUB_TOKEN@github.com/sudonims/sudonims
-          git commit -am "build"
+          # git commit -am "build"
           git switch gh-pages
           shopt -s extglob
           rm -rf !("out"|"CNAME")
