@@ -41,9 +41,9 @@ jobs:
           git commit -am "build"
           git switch gh-pages
           shopt -s extglob
-          rm -rf !("build"|"CNAME")
-          cp -r build/* .;
-          rm -r build
+          rm -rf !("out"|"CNAME")
+          cp -r out/* .;
+          rm -r out
           git add .;
           git commit -am "staged deploy"
           git push origin gh-pages

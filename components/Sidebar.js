@@ -1,47 +1,19 @@
 import {
   IconButton,
   Box,
-  CloseButton,
   Flex,
-  Icon,
-  useColorModeValue,
-  Link,
   Drawer,
   DrawerContent,
-  Text,
   useDisclosure,
 } from '@chakra-ui/react';
 import { HamburgerIcon } from '@chakra-ui/icons';
 
-// import {
-//   FiHome,
-//   FiTrendingUp,
-//   FiCompass,
-//   FiStar,
-//   FiSettings,
-//   FiMenu,
-// } from 'react-icons/fi';
-
-const LinkItems = [
-  { href: 'https://sudonims.tech', front: 'About', back: 'Go' },
-  {
-    href: '#exp',
-    front: 'Experience',
-    back: 'Go',
-  },
-  { href: '#work', front: 'Work', back: 'Go' },
-  {
-    href: '#contact',
-    front: 'Contact',
-    back: 'Go',
-  },
-];
-
-export default function Sidebar() {
+export default function Sidebar({ linkItems }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <Box position="absolute" minH="100vh">
       <SidebarContent
+        linkItems={linkItems}
         onClose={() => onClose}
         display={{ base: 'none', md: 'flex' }}
         width="10vw"
@@ -57,6 +29,7 @@ export default function Sidebar() {
       >
         <DrawerContent>
           <SidebarContent
+            linkItems={linkItems}
             width="80%"
             display={{ base: 'flex', md: 'none' }}
             onClose={onClose}
@@ -68,10 +41,10 @@ export default function Sidebar() {
   );
 }
 
-const SidebarContent = ({ onClose, ...rest }) => {
+const SidebarContent = ({ onClose, linkItems, ...rest }) => {
   return (
     <Flex justifyContent="flex-end" height="100vh" direction="column" {...rest}>
-      {LinkItems.map((link, i) => (
+      {linkItems.map((link, i) => (
         <div key={i} className="flip">
           <a onClick={onClose} href={link.href}>
             <div className="front">{link.front}</div>
