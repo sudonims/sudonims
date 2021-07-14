@@ -93,10 +93,17 @@ body {
 .image {
   position: absolute;
   background-image: url("/static/image/profile.jpg");
-  min-height: 300px;
+  height: auto;
+  width: auto;
+  min-height: 400px;
+  max-height: 600px;
   min-width: 300px;
+  max-width: 600px;
   background-size: cover;
   background-repeat: no-repeat;
+  filter: grayscale(100%);
+  transition-duration: 400ms;
+  border-radius: 15px;
 }
 
 .image-grey-right {
@@ -110,23 +117,11 @@ body {
   right: 0;
 }
 
+.image:hover {
+  filter: none;
+}
+
 .image .image-grey-right:hover {
   -webkit-filter: grayscale(100%);
   border-right-color: rgba(44, 44, 44, 0.5);
-}
-
-.image-grey-left {
-  position: absolute;
-  width: 200px;
-  height: 200px;
-  border-top: 200px solid transparent;
-  border-right: 200px solid transparent;
-  transition-duration: 400ms;
-  top: 0;
-  left: 0;
-}
-
-.image .image-grey-left:hover {
-  -webkit-filter: grayscale(100%);
-  border-top-color: rgba(44, 44, 44, 0.5);
 }
