@@ -43,7 +43,7 @@ export default function About() {
               I am a Full Stack Web Developer located in India. I enjoy creating
               things for the web. I have a passion for trying out new things
               that I find interesting. Started Web Development for a college
-              project, I grew interest in it and haven't looked back since.
+              project, I grew interest in it and haven&#39;t looked back since.
             </Text>
             <Text
               fontSize={{ base: 'md', md: 'lg' }}
