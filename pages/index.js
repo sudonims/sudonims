@@ -1,9 +1,11 @@
+import { Box, Flex } from '@chakra-ui/react';
+
 import Home from '../components/Home';
 import RightSidebar from '../components/RightSidebar';
 import Sidebar from '../components/Sidebar';
 import Head from 'next/head';
 import About from '../components/About';
-import { Box, Flex } from '@chakra-ui/layout';
+import SocialBar from '../components/SocialBar';
 
 const Divider = () => {
   return (
@@ -19,12 +21,13 @@ export default function Main() {
       <Head>
         <title>Nimish Shah</title>
       </Head>
+      <SocialBar />
       <Sidebar
         linkItems={[
-          { href: 'https://sudonims.tech', front: 'About', back: 'Go' },
+          { href: '#about', front: 'About', back: 'Go' },
           {
             href: '#exp',
-            front: 'Experience',
+            front: 'Skills',
             back: 'Go',
           },
           { href: '#work', front: 'Work', back: 'Go' },

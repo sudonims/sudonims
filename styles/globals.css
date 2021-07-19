@@ -6,6 +6,7 @@ body {
   position: absolute;
   background: #1a202c;
   z-index: 200;
+  scroll-behavior: smooth;
 }
 
 * {
