@@ -11,7 +11,7 @@ export default function About() {
           <Heading
             letterSpacing="wider"
             width={{ base: '100%', md: null }}
-            textAlign={{}}
+            textAlign={{ base: 'center', md: 'unset' }}
             fontSize={{ base: '4xl', md: '7xl' }}
           >
             Me & Myself
@@ -53,6 +53,14 @@ export default function About() {
               Problem solver, well organized with high attention to details. I
               am a tech enthusiast and like to understand core things about
               tech.
+            </Text>
+            <Text
+              fontSize={{ base: 'md', md: 'lg' }}
+              letterSpacing="wide"
+              margin="10px"
+            >
+              Apart from programming I like playing Badminton, outdoor
+              activities, Photography, Watching movies n TV shows
             </Text>
           </Flex>
           <Flex

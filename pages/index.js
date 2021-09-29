@@ -21,12 +21,13 @@ export default function Main() {
       <Head>
         <title>Nimish Shah</title>
       </Head>
+      <canvas id="canvas"></canvas>
       <SocialBar />
       <Sidebar
         linkItems={[
           { href: '#about', front: 'About', back: 'Go' },
           {
-            href: '#exp',
+            href: '#skills',
             front: 'Skills',
             back: 'Go',
           },
@@ -42,7 +43,6 @@ export default function Main() {
       <Home />
       <Divider />
       <About />
-      <canvas id="canvas"></canvas>
       <script defer src="/static/js/mousetrail.js"></script>
     </>
   );
