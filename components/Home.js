@@ -39,9 +39,9 @@ export default function Home() {
         </Heading>
         <Box margin="20px 0px" width={{ base: '100%', md: '40%', lg: '40%' }}>
           <Text noOfLines={[5, 4, 4]} letterSpacing="wider">
-            I am a <b>Software Engineer</b> good at developing web interfaces.
-            Always wanting to try out new things, I sometimes accidently also
-            develop small useful routines.
+            I am a <b>Software Engineer</b> good at developing web interfaces. I
+            enjoy learning new things in the technological field. I am a crypto
+            enthusiast. I love playing with Linux.
           </Text>
         </Box>
         <Text color="#64ffda">

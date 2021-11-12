@@ -6,6 +6,7 @@ import Sidebar from '../components/Sidebar';
 import Head from 'next/head';
 import About from '../components/About';
 import SocialBar from '../components/SocialBar';
+import Skills from '../components/Skills';
 
 const Divider = () => {
   return (
@@ -43,6 +44,7 @@ export default function Main() {
       <Home />
       <Divider />
       <About />
+      {/* <Skills /> */}
       <script defer src="/static/js/mousetrail.js"></script>
     </>
   );
