@@ -42,7 +42,7 @@ jobs:
           git switch gh-pages
           shopt -s extglob
           rm -rf !("out"|"CNAME")
-          cp -r out/* .;
+          cp -r out/. .;
           rm -r out
           touch .nojekyll
           git add .;
