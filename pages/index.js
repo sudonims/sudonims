@@ -6,8 +6,9 @@ import Sidebar from '../components/Sidebar';
 import Head from 'next/head';
 import About from '../components/About';
 import SocialBar from '../components/SocialBar';
-import Skills from '../components/Skills';
+import Skills from '../components/Projects';
 import Work from '../components/Work';
+import Projects from '../components/Projects';
 
 const Divider = () => {
   return (
@@ -28,12 +29,12 @@ export default function Main() {
       <Sidebar
         linkItems={[
           { href: '#about', front: 'About', back: 'Go' },
-          { href: '#work', front: 'Work', back: 'Go' },
           {
-            href: '#skills',
-            front: 'Skills',
+            href: '#projects',
+            front: 'Projects',
             back: 'Go',
           },
+          { href: '#work', front: 'Work', back: 'Go' },
           {
             href: '#contact',
             front: 'Contact',
@@ -46,7 +47,7 @@ export default function Main() {
       <Divider />
       <About />
       <Divider />
-      <Work />
+      <Projects />
       {/* <Skills /> */}
       <script defer src="/static/js/mousetrail.js"></script>
     </>
