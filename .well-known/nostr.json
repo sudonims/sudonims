@@ -1,5 +1,16 @@
 {
   "names": {
-    "sudonims": "6cf10bddca4c453b82b368343619901013f7334223a8e4642fb0a45129c2f824"
+    "sudonims": "6cf10bddca4c453b82b368343619901013f7334223a8e4642fb0a45129c2f824",
+    "OP_RETURN_Bot": "7d4a4e87f28e0e3581d4aa923494dfb5bb428abdac20db79560e2bdec853bba8"
+  },
+  "relays": {
+    "6cf10bddca4c453b82b368343619901013f7334223a8e4642fb0a45129c2f824": [
+      "wss://relay.damus.io",
+      "wss://nostr.bitcoiner.social"
+    ],
+    "7d4a4e87f28e0e3581d4aa923494dfb5bb428abdac20db79560e2bdec853bba8": [
+      "wss://relay.damus.io",
+      "wss://nostr.bitcoiner.social"
+    ]
   }
 }
