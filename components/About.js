@@ -40,10 +40,10 @@ export default function About() {
               letterSpacing="wide"
               margin="10px"
             >
-              I am a Full Stack Web Developer located in India. I enjoy creating
-              things for the web. I have a passion for trying out new things
-              that I find interesting. Started Web Development for a college
-              project, I grew interest in it and haven&#39;t looked back since.
+              I am a Software Engineer located in India. I enjoy creating things
+              for computers. I have a passion for trying out new things that I
+              find interesting. Started programming somewhere around 2017 and
+              haven&#39;t looked back since.
             </Text>
             <Text
               fontSize={{ base: 'md', md: 'lg' }}
@@ -59,8 +59,9 @@ export default function About() {
               letterSpacing="wide"
               margin="10px"
             >
-              Apart from programming I like playing Badminton, outdoor
-              activities, Photography, Watching movies n TV shows
+              When I'm not coding you can find me playing Badminton, outdoor
+              activities, photography, watching movies n TV shows or simply
+              orange-pilling someone. &#x20BF;
             </Text>
           </Flex>
           <Flex

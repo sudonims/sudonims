@@ -35,14 +35,13 @@ export default function Home() {
           as="h2"
           letterSpacing="wide"
         >
-          I develop things for the web
+          I develop things that work
         </Heading>
         <Box margin="20px 0px" width={{ base: '100%', md: '40%', lg: '40%' }}>
           <Text noOfLines={[5, 4, 4]} letterSpacing="wider">
-            I am a <b>Software Engineer</b> good at developing web interfaces. I
-            enjoy learning new things in the technological field. I am
-            interested in crypto space and am a Bitcoiner. I love playing around
-            with Linux.
+            I am a <b>Software Engineer</b> good at developing computer stuff. I
+            enjoy learning new things in the technological field. I am a
+            Bitcoiner. I love playing around with Linux.
           </Text>
         </Box>
         <Text color="#64ffda">
