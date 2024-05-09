@@ -5,6 +5,7 @@ import {
   Drawer,
   DrawerContent,
   useDisclosure,
+  Link,
 } from '@chakra-ui/react';
 import { HamburgerIcon } from '@chakra-ui/icons';
 
@@ -46,7 +47,7 @@ const SidebarContent = ({ onClose, linkItems, ...rest }) => {
     <Flex justifyContent="flex-end" height="100vh" direction="column" {...rest}>
       {linkItems.map((link, i) => (
         <div key={i} className="flip">
-          <a key={i} onClick={onClose} href={link.href}>
+          <a onClick={onClose} href={link.href}>
             <div className="front">{link.front}</div>
             <div className="back">{link.back}</div>
           </a>
