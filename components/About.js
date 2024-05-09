@@ -59,9 +59,9 @@ export default function About() {
               letterSpacing="wide"
               margin="10px"
             >
-              When I'm not coding you can find me playing Badminton, outdoor
-              activities, photography, watching movies n TV shows or simply
-              orange-pilling someone. &#x20BF;
+              When I&apos;m not coding you can find me playing Badminton,
+              outdoor activities, photography, watching movies n TV shows or
+              simply orange-pilling someone. &#x20BF;
             </Text>
           </Flex>
           <Flex
