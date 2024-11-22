@@ -1,65 +1,33 @@
-import { Icon } from '@chakra-ui/react';
 import {
-  RiExternalLinkFill,
-  RiFolder2Fill,
-  RiGithubFill,
-} from 'react-icons/ri';
+  Badge,
+  Card,
+  CardBody,
+  HStack,
+  Heading,
+  Stack,
+  Text,
+} from '@chakra-ui/react';
 
-export default function ProjectTile({ data }) {
-  const { github, external, title, html, tech } = data;
+export default function ProjectTile({ name, description, badges }) {
   return (
-    <div className="project-inner">
-      <header>
-        <div className="project-top">
-          <div className="folder">
-            <RiFolder2Fill />
-          </div>
-          <div className="project-links">
-            {github && (
-              <a
-                href={github}
-                aria-label="GitHub Link"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <RiGithubFill />
-              </a>
-            )}
-            {external && (
-              <a
-                href={external}
-                aria-label="External Link"
-                className="external"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <RiExternalLinkFill />
-              </a>
-            )}
-          </div>
-        </div>
+    <Card height={300} maxHeight={300} minHeight={300} key={name}>
+      <Stack>
+        <CardBody align="left" h={[null, '40vh']}>
+          <Heading size="sm">{name}</Heading>
 
-        <h3 className="project-title">
-          <a href={external} target="_blank" rel="noreferrer">
-            {title}
-          </a>
-        </h3>
+          <Text fontSize="sm" py={2}>
+            {description}
+          </Text>
 
-        <div
-          className="project-description"
-          dangerouslySetInnerHTML={{ __html: html }}
-        />
-      </header>
-
-      <footer>
-        {tech && (
-          <ul className="project-tech-list">
-            {tech.map((tech, i) => (
-              <li key={i}>{tech}</li>
+          <HStack flexWrap="wrap" pt={4} spacing={2}>
+            {badges.map((badge) => (
+              <Badge my={2} key={badge.text} colorScheme={badge.colorScheme}>
+                {badge.text}
+              </Badge>
             ))}
-          </ul>
-        )}
-      </footer>
-    </div>
+          </HStack>
+        </CardBody>
+      </Stack>
+    </Card>
   );
 }

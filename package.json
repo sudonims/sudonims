@@ -1,6 +1,6 @@
 {
   "name": "sudonims",
-  "version": "0.1.0",
+  "version": "0..0",
   "private": true,
   "scripts": {
     "dev": "NODE_OPTIONS=--openssl-legacy-provider next dev",
@@ -20,8 +20,7 @@
     "react-dom": "^18.2.0",
     "react-icons": "^4.2.0",
     "react-reveal": "^1.2.2",
-    "react-transition-group": "^4.4.5",
-    "styled-components": "^6.0.7"
+    "react-transition-group": "^4.4.5"
   },
   "devDependencies": {
     "eslint": "7.32.0",
