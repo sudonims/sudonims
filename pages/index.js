@@ -17,6 +17,10 @@ const Divider = () => {
 };
 
 export default function Main() {
+  if (typeof window !== 'undefined') {
+    // localStorage.setItem('theme', currentTheme);
+    localStorage.setItem('chakra-ui-color-mode', 'dark');
+  }
   return (
     <>
       <Head>

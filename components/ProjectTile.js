@@ -20,8 +20,8 @@ export default function ProjectTile({ name, description, badges }) {
           </Text>
 
           <HStack flexWrap="wrap" pt={4} spacing={2}>
-            {badges.map((badge) => (
-              <Badge my={2} key={badge.text} colorScheme={badge.colorScheme}>
+            {badges.map((badge, i) => (
+              <Badge my={2} key={i} colorScheme={badge.colorScheme}>
                 {badge.text}
               </Badge>
             ))}

@@ -1,14 +1,14 @@
 import '../styles/globals.css';
 import '../styles/sidebar.button.css';
-import { ChakraProvider, ColorModeProvider } from '@chakra-ui/react';
-import customTheme from '../styles/theme';
+import { ChakraProvider, ColorModeProvider, theme } from '@chakra-ui/react';
 
 function MyApp({ Component, pageProps }) {
   return (
-    <ChakraProvider theme={customTheme}>
+    <ChakraProvider theme={theme}>
       <ColorModeProvider
         options={{
           initialColorMode: 'dark',
+          useSystemColorMode: false,
         }}
       >
         <Component {...pageProps} />

@@ -3,6 +3,10 @@ import ProjectTile from './ProjectTile';
 import { useState } from 'react';
 
 export default function Projects() {
+  const size = useBreakpointValue({
+    base: '100%',
+    md: 'calc(20% -1rem)',
+  });
   const [projects, setProjects] = useState([
     {
       name: 'Private Key Manager',
@@ -131,14 +135,8 @@ export default function Projects() {
             <Box
               key={i}
               flex="1 1 calc(20% - 1rem)" // Adjust to control the number of tiles per row
-              minW={useBreakpointValue({
-                base: '100%',
-                md: 'calc(20% - 1rem)',
-              })}
-              maxW={useBreakpointValue({
-                base: '100%',
-                md: 'calc(20% - 1rem)',
-              })} // Responsive sizing
+              minW={size}
+              maxW={size} // Responsive sizing
               boxShadow="lg"
               borderRadius="lg"
             >
