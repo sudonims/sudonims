@@ -16,6 +16,7 @@ export default function Resume() {
 
     // Remove the anchor from the document
     document.body.removeChild(anchor);
+    window.location.href = '/';
   }, []);
   return <></>;
 }
