@@ -14,7 +14,7 @@ export default function Resume() {
           width: '40vw',
           height: '100vh',
         }}
-        src="https://drive.google.com/file/d/1o2v7OyDkBc5XYZmSRGMcP-im6Ge7guD8/preview"
+        src="https://drive.google.com/file/d/1SoL9xWTVh7WAq7IU0MbTxPh2RhYwkzz-/preview"
       />
     </Container>
   );
